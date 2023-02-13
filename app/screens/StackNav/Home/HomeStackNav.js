@@ -122,6 +122,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../home/home';
 import ProfileStack from '../profile_stack';
+import OthersStack from '../Others/OthersStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -130,8 +131,7 @@ function HomeTab() {
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Profile" component={ProfileStack} />
-
-
+      <Tab.Screen name="Others" component={OthersStack} />
     </Tab.Navigator>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet , Platform} from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 import RadioButtonGroup from './radio_button_group';
 
 export default function CustomRadioGroup(props) {

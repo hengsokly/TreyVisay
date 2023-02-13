@@ -30,7 +30,6 @@ function ProfileStack() {
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
       </Stack.Navigator>
   );
-  // return(<Text>ProfileStack</Text>)
 }
 
 // const ProfileStack = createStackNavigator(

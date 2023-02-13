@@ -10,7 +10,7 @@ import {
   BackHandler,
 } from 'react-native';
 
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 import majorList from '../../data/json/personality_major';
 import mainStyles from '../../assets/style_sheets/main/main';
 import { Colors } from '../../assets/style_sheets/main/colors';

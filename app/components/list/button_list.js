@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 
 import mainStyles from "../../assets/style_sheets/main/main";
 

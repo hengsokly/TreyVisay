@@ -7,7 +7,7 @@ import {
 import { Field } from 'redux-form';
 import CustomRadioGroup from '../CustomRadioGroup';
 import Question from '../../data/json/personal_understanding.json';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 
 class FormRadio extends React.Component {
   constructor(props) {

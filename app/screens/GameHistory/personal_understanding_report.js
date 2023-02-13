@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import realm from '../../db/schema';

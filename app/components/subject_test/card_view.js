@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,Container, Header, Content, Card, CardItem, Text, Body } from 'native-base';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 
 export default class CardView extends Component {
   render() {

@@ -5,7 +5,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import { Colors } from '../../../assets/style_sheets/main/colors';
 import mainStyles from '../../../assets/style_sheets/main/main';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 class Goal extends Component{

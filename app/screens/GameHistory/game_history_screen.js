@@ -8,7 +8,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 
 import { Colors } from '../../assets/style_sheets/main/colors';
 import mainStyles from '../../assets/style_sheets/main/main';

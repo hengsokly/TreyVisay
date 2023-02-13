@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Toast, { DURATION } from 'react-native-easy-toast';
 import { NavigationActions } from 'react-navigation';
-import { Divider } from 'react-native-elements';
+import { Divider } from '@react-native-material/core';
 
 import mainStyles from '../../../assets/style_sheets/main/main';
 import { Colors } from '../../../assets/style_sheets/main/colors';

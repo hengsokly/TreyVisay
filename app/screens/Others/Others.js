@@ -10,7 +10,7 @@ import { Colors } from '../../assets/style_sheets/main/colors';
 import ScrollableHeader from '../../components/scrollable_header';
 import MyStatusBar from '../../components/shared/status_bar';
 import Share from 'react-native-share';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import keyword from '../../data/analytics/keyword';
 
 export default class Others extends Component {
@@ -59,7 +59,7 @@ export default class Others extends Component {
     };
 
     Share.open(shareOptions).then((res) => {
-      firebase.analytics().logEvent(keyword.SHARE_APP);
+      // firebase.analytics().logEvent(keyword.SHARE_APP);
     })
   }
 
