@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 
-import { Avatar } from 'react-native-material-ui';
+import { Avatar } from '@react-native-material/core';
 import { Dialog } from 'react-native-simple-dialogs';
 import ImagePicker from 'react-native-image-crop-picker';
 import StatusBar from '../../components/shared/status_bar';

@@ -8,7 +8,7 @@ import {
   Platform,
   StatusBar
 } from 'react-native';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 
 // Utils
 import realm from '../../db/schema';
@@ -20,7 +20,8 @@ import scrollHeaderStyles from '../../assets/style_sheets/scroll_header';
 import ScrollableHeader from '../../components/scrollable_header';
 import BackButton from '../../components/shared/back_button';
 import { Container, Content, Icon, Button, Input, Item, Form } from 'native-base';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import { Colors } from '../../assets/style_sheets/main/colors';
 import keyword from '../../data/analytics/keyword';
 
@@ -46,9 +47,10 @@ export default class Login extends Component {
   }
 
   _renderNavigation = () => {
-    if (this.props.navigation.getParam('disableNavigationBar')) {
-      return (null)
-    }
+    // Todo:
+    // if (this.props.navigation.getParam('disableNavigationBar')) {
+    //   return (null)
+    // }
 
     let marginRight = Platform.OS === 'ios' ? 30 : 44;
 
@@ -161,14 +163,15 @@ export default class Login extends Component {
 
   _handleNavigation = (user) => {
     if (!this._isUserInfoCompleted(user)) {
-      return this.props.navigation.reset([NavigationActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
+      return this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
     }
 
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+    this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
   }
 
   _register = () => {
-    firebase.analytics().logEvent(keyword.SIGNUP);
+    // Todo:
+    // firebase.analytics().logEvent(keyword.SIGNUP);
 
     if (!this.state.username || !this.state.password || !this.state.passwordConfirmation) {
       return Alert.alert(
@@ -193,7 +196,7 @@ export default class Login extends Component {
     try {
       realm.write(() => {
         let user = realm.create('User', this._buildData());
-        firebase.analytics().setUserId(user.uuid);
+        // firebase.analytics().setUserId(user.uuid);
 
         User.setLogin(user.uuid, ()=> {
           return this._handleNavigation(user);
@@ -214,7 +217,7 @@ export default class Login extends Component {
   }
 
   _login = () => {
-    firebase.analytics().logEvent(keyword.LOGIN);
+    // firebase.analytics().logEvent(keyword.LOGIN);
 
     if (!this.state.username || !this.state.password) {
       return Alert.alert(

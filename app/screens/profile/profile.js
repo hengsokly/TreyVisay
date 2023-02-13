@@ -14,7 +14,7 @@ import highSchools from '../../data/json/address/highSchools.json';
 import te from '../../data/translates/km';
 
 import ScrollableHeader from '../../components/scrollable_header';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
 import Login from '../Account/login';
 import grades from '../../data/json/grades.json';
 import {Colors} from '../../assets/style_sheets/main/colors';
@@ -25,6 +25,7 @@ export default class Profile extends Component {
 
     this.handleParamForLoginPage();
     this.assignStatusBar();
+
   }
 
   handleParamForLoginPage() {
@@ -34,11 +35,11 @@ export default class Profile extends Component {
   componentWillMount() {
     this.refreshState();
 
-    this.subs = [this.props.navigation.addListener('didFocus', (payload) => this.componentDidFocus(payload))];
+    // this.subs = [this.props.navigation.addListener('didFocus', (payload) => this.componentDidFocus(payload))];
   }
 
   componentWillUnmount(){
-    this.subs.forEach(sub => sub.remove());
+    // this.subs.forEach(sub => sub.remove());
   }
 
   componentDidFocus() {

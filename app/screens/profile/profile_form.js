@@ -15,7 +15,8 @@ import {Colors} from '../../assets/style_sheets/main/colors';
 import ScrollableHeader from '../../components/scrollable_header';
 import { Content, Icon, Button } from 'native-base';
 import FooterBar from '../../components/footer/FooterBar';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import FormScreen from './Form';
 
 let formError = {};
@@ -48,7 +49,7 @@ export default class ProfileForm extends Component {
 
   _handleIfUserLogout() {
     if (!User.getCurrent()) {
-      this.props.navigation.reset([NavigationActions.navigate({ routeName: 'ProfileScreen' })]);
+      this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileScreen' })]);
     }
   }
 
@@ -57,7 +58,7 @@ export default class ProfileForm extends Component {
       realm.write(() => {
         realm.create('User', { uuid: User.getID(), grade: 'other'}, true);
         Sidekiq.create(User.getID(), 'User');
-        this.props.navigation.reset([NavigationActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+        this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
       });
     } catch (e) {
       alert(e);
@@ -97,7 +98,7 @@ export default class ProfileForm extends Component {
       realm.write(() => {
         user = realm.create('User', this._buildData(), true);
         Sidekiq.create(this.state.user.uuid, 'User');
-        this.props.navigation.reset([NavigationActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+        this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
       });
     } catch (e) {
       alert(e);

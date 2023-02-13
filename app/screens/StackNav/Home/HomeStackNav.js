@@ -121,21 +121,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../home/home';
+import ProfileStack from '../profile_stack';
 
 const Tab = createBottomTabNavigator();
-
-// function HomeScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// }
 
 function HomeTab() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Profile" component={ProfileStack} />
+
+
     </Tab.Navigator>
   );
 }
