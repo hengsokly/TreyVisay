@@ -25,6 +25,8 @@ import { CommonActions } from '@react-navigation/native';
 import { Colors } from '../../assets/style_sheets/main/colors';
 import keyword from '../../data/analytics/keyword';
 
+import * as RootNavigation from '../StackNav/RootNavigation.js';
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -48,9 +50,9 @@ export default class Login extends Component {
 
   _renderNavigation = () => {
     // Todo:
-    // if (this.props.navigation.getParam('disableNavigationBar')) {
-    //   return (null)
-    // }
+    if (this.props.route.params && this.props.route.params.disableNavigationBar) {
+      return (null)
+    }
 
     let marginRight = Platform.OS === 'ios' ? 30 : 44;
 
@@ -163,10 +165,12 @@ export default class Login extends Component {
 
   _handleNavigation = (user) => {
     if (!this._isUserInfoCompleted(user)) {
-      return this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
+      return RootNavigation.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.route.params.from} })]);
+      // return this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
     }
 
-    this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+    // this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+    RootNavigation.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
   }
 
   _register = () => {

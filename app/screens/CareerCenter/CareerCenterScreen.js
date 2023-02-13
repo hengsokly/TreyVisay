@@ -17,12 +17,12 @@ import mainStyles from "../../assets/style_sheets/main/main";
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Divider } from '@react-native-material/core';
 
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import keyword from '../../data/analytics/keyword';
 
 export default class CareerCenterScreen extends Component {
   _goTo = (career) => {
-    firebase.analytics().logEvent(career.firebase_event_name);
+    // firebase.analytics().logEvent(career.firebase_event_name);
     this.props.navigation.navigate(career.screen, {url: career.url});
   }
 

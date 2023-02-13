@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Platform, StatusBar } from 'react-native';
-import { createStackNavigator } from  'react-navigation';
+// import { createStackNavigator } from  'react-navigation';
 
 import headerStyles from '../../../assets/style_sheets/header';
 import CloseButton from '../../../components/shared/close_button';
@@ -24,148 +24,211 @@ import PersonalityAssessmentJobList from '../../PersonalityAssessmentJobList/Per
 import PersonalityAssessmentJobDetail from '../../PersonalityAssessmentJobDetail/PersonalityAssessmentJobDetail';
 import PersonalityAssessmentSubjectTip from '../../PersonalityAssessmentSubjectTip/PersonalityAssessmentSubjectTip';
 
-const AssessmentStack = createStackNavigator(
-  {
-    PersonalityAssessmentScreen: {
-      screen: PersonalityAssessment,
-      navigationOptions: ({navigation}) => ({
-        title: 'វាយតម្លៃមុខរបរនិងអាជីព',
-        header: null
-      })
-    },
-    AboutPersonalityAssessment: {
-      screen: AboutPersonalityAssessment,
-      navigationOptions: ({navigation}) => ({
-        title: 'អំពីការធ្វើតេស្តស្វែងយល់បុគ្គលិកលក្ខណៈ'
-      })
-    },
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-    RealisticScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តប្រាកដនិយម',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    InvestigativeScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តពូកែអង្កេត',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    ArtisticScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តសិល្បៈនិយម',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    SocialScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តសង្គម',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    EnterprisingScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តត្រិះរិះពិចារណា',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    ConventionalScreen: {
-      screen: PersonalityAssessmentForm,
-      navigationOptions: ({navigation}) => ({
-        title: 'អនុវត្តតេស្តសណ្ដាប់ធ្នាប់',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation}/>,
-        header: null
-      })
-    },
-    AssessmentResultScreen: {
-      screen: PersonalityAssessmentResult,
-      navigationOptions: ({navigation}) => ({
-        title: 'បង្ហាញលទ្ធផល',
-        headerLeft: <CloseButton navigation={navigation}/>,
-        headerRight: <NextButton navigation={navigation} text='រួចរាល់' icon='done'/>,
-        header: null
-      })
-    },
-    AssessmentResultHistoryScreen: {
-      screen: PersonalityAssessmentResultHistory,
-      navigationOptions: ({navigation}) => ({
-        title: 'លទ្ធផលតេស្ត',
-      })
-    },
-    PersonalityCategoryScreen: {
-      screen: PersonalityAssessmentPersonalityCategory,
-      navigationOptions: ({navigation}) => ({
-        title: `លទ្ធផលតេស្តបែប${navigation.getParam('title')}`,
-      })
-    },
-    HighSchoolStudyOptionScreen: {
-      screen: PersonalityAssessmentHighSchoolStudyOption,
-      navigationOptions: ({navigation}) => ({
-        title: `ជម្រើសនៃការសិក្សាកម្រិតមធ្យមសិក្សាទុតិយភូមិ`,
-      })
-    },
-    MajorListScreen: {
-      screen: PersonalityAssessmentMajorList,
-      navigationOptions: ({navigation}) => ({
-        title: `ជម្រើសនៃការសិក្សាកម្រិតឧត្តមសិក្សា`,
-      })
-    },
-    MajorDetailScreen: {
-      screen: PersonalityAssessmentMajorDetail,
-      navigationOptions: ({navigation}) => ({
-        title: `ការសិក្សាជំនាញ${navigation.getParam('title')}`,
-      })
-    },
-    PersonalityAssessmentJobListScreen: {
-      screen: PersonalityAssessmentJobList,
-      navigationOptions: ({navigation}) => ({
-        title: `ជម្រើសអាជីពការងារសក្ដិសម`,
-      })
-    },
-    PersonalityAssessmentJobDetailScreen: {
-      screen: PersonalityAssessmentJobDetail,
-      navigationOptions: ({navigation}) => ({
-        title: `ទំព័រលម្អិតពីអាជីព`,
-      })
-    },
-    PersonalityAssessmentSubjectTipScreen: {
-      screen: PersonalityAssessmentSubjectTip,
-      navigationOptions: ({navigation}) => ({
-        title: `គន្លឹះពង្រឹងមុខវិជ្ជា${navigation.getParam('title')}`,
-      })
-    },
-  },
-  {
-    navigationOptions: ({
-      headerStyle: {
-        // marginTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0,
-      },
-      headerTitleStyle: {
-        fontSize: FontSetting.nav_title,
-        fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy',
-        fontWeight: '300'
-      },
-      headerBackTitle: null
-    }),
-    initialRouteName: 'PersonalityAssessmentScreen'
-  }
-);
+const Stack = createNativeStackNavigator();
+
+function AssessmentStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="PersonalityAssessmentScreen" component={PersonalityAssessment} />
+      <Stack.Screen name="AboutPersonalityAssessment" component={AboutPersonalityAssessment} options={{title: "អំពីការធ្វើតេស្តស្វែងយល់បុគ្គលិកលក្ខណៈ"}} />
+      <Stack.Screen name="RealisticScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តប្រាកដនិយម",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="InvestigativeScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តពូកែអង្កេត",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="ArtisticScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តសិល្បៈនិយម",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="SocialScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តសង្គម",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="EnterprisingScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តត្រិះរិះពិចារណា",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="ConventionalScreen" component={PersonalityAssessmentForm} options={{
+        title: "អនុវត្តតេស្តសណ្ដាប់ធ្នាប់",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="AssessmentResultScreen" component={PersonalityAssessmentForm} options={{
+        title: "បង្ហាញលទ្ធផល",
+        headerLeft: (props) => <CloseButton navigation={props.navigation}/>,
+        headerRight: (props) => <NextButton navigation={props.navigation}/>,
+      }} />
+      <Stack.Screen name="AssessmentResultHistoryScreen" component={PersonalityAssessmentResultHistory} options={{title: "លទ្ធផលតេស្ត"}} />
+      <Stack.Screen name="PersonalityCategoryScreen" component={PersonalityAssessmentPersonalityCategory} options={({ navigation, route }) => ({
+          headerTitle: `លទ្ធផលតេស្តបែប${navigation.getParam('title')}`,
+         })} />
+      <Stack.Screen name="HighSchoolStudyOptionScreen" component={PersonalityAssessmentPersonalityCategory} options={{title: "ជម្រើសនៃការសិក្សាកម្រិតមធ្យមសិក្សាទុតិយភូមិ"}} />
+      <Stack.Screen name="MajorListScreen" component={PersonalityAssessmentMajorList} options={{title: "ជម្រើសនៃការសិក្សាកម្រិតឧត្តមសិក្សា"}} />
+      <Stack.Screen name="MajorDetailScreen" component={PersonalityAssessmentMajorDetail} options={({ navigation, route }) => ({
+          headerTitle: `ការសិក្សាជំនាញ${navigation.getParam('title')}`,
+         })} />
+      <Stack.Screen name="PersonalityAssessmentJobListScreen" component={PersonalityAssessmentJobList} options={{title: "ជម្រើសអាជីពការងារសក្ដិសម"}} />
+      <Stack.Screen name="PersonalityAssessmentJobDetailScreen" component={PersonalityAssessmentJobDetail} options={{title: "ទំព័រលម្អិតពីអាជីព"}} />
+      <Stack.Screen name="PersonalityAssessmentSubjectTipScreen" component={PersonalityAssessmentSubjectTip} options={({ navigation, route }) => ({
+          headerTitle: `គន្លឹះពង្រឹងមុខវិជ្ជា${navigation.getParam('title')}`
+         })} />
+
+    </Stack.Navigator>
+  )
+}
+
+// const AssessmentStack = createStackNavigator(
+//   {
+//     PersonalityAssessmentScreen: {
+//       screen: PersonalityAssessment,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'វាយតម្លៃមុខរបរនិងអាជីព',
+//         header: null
+//       })
+//     },
+//     AboutPersonalityAssessment: {
+//       screen: AboutPersonalityAssessment,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អំពីការធ្វើតេស្តស្វែងយល់បុគ្គលិកលក្ខណៈ'
+//       })
+//     },
+
+//     RealisticScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តប្រាកដនិយម',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     InvestigativeScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តពូកែអង្កេត',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     ArtisticScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តសិល្បៈនិយម',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     SocialScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តសង្គម',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     EnterprisingScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តត្រិះរិះពិចារណា',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     ConventionalScreen: {
+//       screen: PersonalityAssessmentForm,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'អនុវត្តតេស្តសណ្ដាប់ធ្នាប់',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation}/>,
+//         header: null
+//       })
+//     },
+//     AssessmentResultScreen: {
+//       screen: PersonalityAssessmentResult,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'បង្ហាញលទ្ធផល',
+//         headerLeft: <CloseButton navigation={navigation}/>,
+//         headerRight: <NextButton navigation={navigation} text='រួចរាល់' icon='done'/>,
+//         header: null
+//       })
+//     },
+//     AssessmentResultHistoryScreen: {
+//       screen: PersonalityAssessmentResultHistory,
+//       navigationOptions: ({navigation}) => ({
+//         title: 'លទ្ធផលតេស្ត',
+//       })
+//     },
+//     PersonalityCategoryScreen: {
+//       screen: PersonalityAssessmentPersonalityCategory,
+//       navigationOptions: ({navigation}) => ({
+//         title: `លទ្ធផលតេស្តបែប${navigation.getParam('title')}`,
+//       })
+//     },
+//     HighSchoolStudyOptionScreen: {
+//       screen: PersonalityAssessmentHighSchoolStudyOption,
+//       navigationOptions: ({navigation}) => ({
+//         title: `ជម្រើសនៃការសិក្សាកម្រិតមធ្យមសិក្សាទុតិយភូមិ`,
+//       })
+//     },
+//     MajorListScreen: {
+//       screen: PersonalityAssessmentMajorList,
+//       navigationOptions: ({navigation}) => ({
+//         title: `ជម្រើសនៃការសិក្សាកម្រិតឧត្តមសិក្សា`,
+//       })
+//     },
+//     MajorDetailScreen: {
+//       screen: PersonalityAssessmentMajorDetail,
+//       navigationOptions: ({navigation}) => ({
+//         title: `ការសិក្សាជំនាញ${navigation.getParam('title')}`,
+//       })
+//     },
+//     PersonalityAssessmentJobListScreen: {
+//       screen: PersonalityAssessmentJobList,
+//       navigationOptions: ({navigation}) => ({
+//         title: `ជម្រើសអាជីពការងារសក្ដិសម`,
+//       })
+//     },
+//     PersonalityAssessmentJobDetailScreen: {
+//       screen: PersonalityAssessmentJobDetail,
+//       navigationOptions: ({navigation}) => ({
+//         title: `ទំព័រលម្អិតពីអាជីព`,
+//       })
+//     },
+//     PersonalityAssessmentSubjectTipScreen: {
+//       screen: PersonalityAssessmentSubjectTip,
+//       navigationOptions: ({navigation}) => ({
+//         title: `គន្លឹះពង្រឹងមុខវិជ្ជា${navigation.getParam('title')}`,
+//       })
+//     },
+//   },
+//   {
+//     navigationOptions: ({
+//       headerStyle: {
+//         // marginTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0,
+//       },
+//       headerTitleStyle: {
+//         fontSize: FontSetting.nav_title,
+//         fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy',
+//         fontWeight: '300'
+//       },
+//       headerBackTitle: null
+//     }),
+//     initialRouteName: 'PersonalityAssessmentScreen'
+//   }
+// );
 
 export default AssessmentStack;

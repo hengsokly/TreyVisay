@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import Button from '../../components/shared/button';
 
 import { FontSetting } from '../../assets/style_sheets/font_setting';
@@ -78,7 +78,7 @@ export default class PersonalityAssessment extends Component {
   }
 
   _startNewAssessment() {
-    firebase.analytics().logEvent(keyword.PERSONALITY_ASSESSMENT_BEGAN);
+    // firebase.analytics().logEvent(keyword.PERSONALITY_ASSESSMENT_BEGAN);
     let uncompletedAssessments = realm.objects('PersonalityAssessment').filtered('isDone = false AND userUuid = "' + User.getID() + '"');
 
     realm.write(() => {

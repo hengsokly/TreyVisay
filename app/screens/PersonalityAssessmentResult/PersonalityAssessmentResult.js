@@ -6,10 +6,11 @@ import {
 } from 'react-native';
 
 import { Button, Icon } from 'native-base';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 
 import FooterBar from '../../components/footer/FooterBar';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import BackConfirmDialog from '../../components/shared/back_confirm_dialog';
 import realm from '../../db/schema';
 import User from '../../utils/user';
@@ -52,7 +53,7 @@ export default class PersonalityAssessmentResult extends Component {
   }
 
   _goNext = () => {
-    firebase.analytics().logEvent(keyword.PERSONALITY_ASSESSMENT_FINISHED);
+    // firebase.analytics().logEvent(keyword.PERSONALITY_ASSESSMENT_FINISHED);
     realm.write(() => {
       realm.create('PersonalityAssessment', this._buildData(), true);
       Sidekiq.create(this.state.assessment.uuid, 'PersonalityAssessment');
@@ -70,7 +71,7 @@ export default class PersonalityAssessmentResult extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'PersonalityAssessmentScreen' })]);
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'PersonalityAssessmentScreen' })]);
   }
 
   _onNo() {

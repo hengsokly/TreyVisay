@@ -123,6 +123,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../home/home';
 import ProfileStack from '../profile_stack';
 import OthersStack from '../Others/OthersStack';
+import AccountStack from '../account_stack';
+import CareerCounsellorStack from '../CareerCounsellor/CareerCounsellorStack';
+import PersonalityAssessmentStack from '../Assessment/PersonalityAssessmentStack';
+import SchoolStack from '../School/SchoolStack';
+import { navigationRef } from '../RootNavigation';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -141,15 +147,20 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"
+      <Stack.Navigator
+        ref={navigationRef}
+        initialRouteName="Home"
         screenOptions={{
           headerShown: false
         }}>
         <Stack.Screen name="HomeTab" component={HomeTab} options={{}}/>
+        <Stack.Screen name="AccountStack" component={AccountStack} options={{}}/>
+        <Stack.Screen name="CareerCounsellorStack" component={CareerCounsellorStack} options={{}}/>
+        <Stack.Screen name="PersonalityAssessmentStack" component={PersonalityAssessmentStack} options={{}}/>
+        <Stack.Screen name="SchoolStack" component={SchoolStack} options={{}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 export default App;
-

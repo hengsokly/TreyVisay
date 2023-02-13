@@ -25,7 +25,7 @@ import Result from './Result';
 import BackButton from '../../../components/shared/back_button';
 import { Colors } from '../../../assets/style_sheets/main/colors';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import keyword from '../../../data/analytics/keyword';
 
 export default class PersonalUnderstandingForm extends Component {
@@ -82,7 +82,7 @@ export default class PersonalUnderstandingForm extends Component {
     let resultKeyword = isPass ? keyword.CAREER_ASSESSMENT_PERSONAL_UNDERSTANDING_TEST_PASS : keyword.CAREER_ASSESSMENT_PERSONAL_UNDERSTANDING_TEST_FAIL;
 
     realm.write(() => {
-      firebase.analytics().logEvent(resultKeyword);
+      // firebase.analytics().logEvent(resultKeyword);
 
       list.push(values);
 

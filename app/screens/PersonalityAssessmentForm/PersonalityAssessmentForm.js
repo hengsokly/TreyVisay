@@ -11,7 +11,8 @@ import scrollHeaderStyles from '../../assets/style_sheets/scroll_header';
 import CheckboxGroup from '../../components/checkbox_group';
 import personalities from '../../data/json/personality';
 import BackConfirmDialog from '../../components/shared/back_confirm_dialog';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import { Content, Left, Body, Right, Icon, Title, Button } from 'native-base';
 
 import ScrollableHeader from '../../components/scrollable_header';
@@ -86,7 +87,7 @@ export default class PersonalityAssessmentRealistic extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'PersonalityAssessmentScreen' })]);
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'PersonalityAssessmentScreen' })]);
   }
 
   _onNo() {

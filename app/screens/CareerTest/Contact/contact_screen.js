@@ -9,7 +9,7 @@ import {
 import { NavigationActions } from 'react-navigation';
 
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import FooterBar from '../../../components/footer/FooterBar';
 import mainStyles from '../../../assets/style_sheets/main/main';
 import BackConfirmDialog from '../../../components/shared/back_confirm_dialog';
@@ -85,7 +85,7 @@ export default class ContactScreen extends Component {
   }
 
   _goNext() {
-    firebase.analytics().logEvent(keyword.CAREER_ASSESSMENT_FINISHED);
+    // firebase.analytics().logEvent(keyword.CAREER_ASSESSMENT_FINISHED);
     this._handleSubmit();
   }
 

@@ -5,8 +5,8 @@ import CarouselView from '../../components/home/carousel_view';
 
 import { Container, Header} from "native-base";
 
-// import User from '../../utils/user';
-// import SchoolUtil from '../../utils/School/School';
+import User from '../../utils/user';
+import SchoolUtil from '../../utils/School/School';
 import scrollHeaderStyles from '../../assets/style_sheets/scroll_header';
 
 export default class Home extends Component {
@@ -17,27 +17,27 @@ export default class Home extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   // SplashScreen.hide();
-  //   // User.isLoggedin(() => {
-  //   //   let user = User.getCurrent();
-  //   //   this.setState({ user: user});
-  //   // });
-  //   // SchoolUtil.clearSelectedValues();
+  componentWillMount() {
+    // SplashScreen.hide();
+    User.isLoggedin(() => {
+      let user = User.getCurrent();
+      this.setState({ user: user});
+    });
+    SchoolUtil.clearSelectedValues();
 
-  //   // this.subs = [this.props.navigation.addListener('didFocus', (payload) => this.componentDidFocus(payload))];
-  // }
+    // this.subs = [this.props.navigation.addListener('didFocus', (payload) => this.componentDidFocus(payload))];
+  }
 
   // componentWillUnmount(){
   //   this.subs.forEach(sub => sub.remove());
   // }
 
-  // componentDidFocus() {
-  //   if (Platform.OS == 'android') {
-  //     StatusBar.setBackgroundColor('rgba(0, 0, 0, 0.251)');
-  //     StatusBar.setBarStyle('dark-content');
-  //   }
-  // }
+  componentDidFocus() {
+    if (Platform.OS == 'android') {
+      StatusBar.setBackgroundColor('rgba(0, 0, 0, 0.251)');
+      StatusBar.setBarStyle('dark-content');
+    }
+  }
 
   render() {
     let height = Platform.OS == 'android' ? 140 - StatusBar.currentHeight : 140;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {View, Text} from "react-native";
-import { Checkbox } from 'react-native-material-ui';
+import { Checkbox } from '@react-native-material/core';
 import { PropTypes } from 'prop-types';
 
 export default class CheckboxGroup extends Component {

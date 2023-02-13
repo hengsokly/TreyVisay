@@ -20,8 +20,8 @@ import { Colors } from '../../assets/style_sheets/main/colors';
 
 import CarouselItem from '../shared/carousel_item';
 import HomeOptions from './home_options';
-// Todo
-// import User from '../../utils/user';
+
+import User from '../../utils/user';
 import LinearGradient from 'react-native-linear-gradient';
 import Ripple from 'react-native-material-ripple';
 
@@ -43,14 +43,13 @@ class CarouselView extends Component {
     let option = Object.assign({}, item);
     option.params = {};
 
-    // Todo:
-    // if (option.url != 'CareerCounsellorStack' && option.url != 'PersonalityAssessmentStack') {
-    //   return option;
-    // }
+    if (option.url != 'CareerCounsellorStack' && option.url != 'PersonalityAssessmentStack') {
+      return option;
+    }
 
-    // if (!!User.getCurrent()) {
-    //   return option;
-    // }
+    if (!!User.getCurrent()) {
+      return option;
+    }
 
     option.params = { from: option.url + "" };
     option.url = 'AccountStack';

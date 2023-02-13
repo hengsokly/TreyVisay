@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 
 import realm from '../../db/schema';
 import User from '../../utils/user';
@@ -138,7 +138,7 @@ export default class CareerCounsellor extends Component {
   }
 
   _goToPersonalUnderstandingForm() {
-    firebase.analytics().logEvent(keyword.CAREER_ASSESSMENT_BEGAN);
+    // firebase.analytics().logEvent(keyword.CAREER_ASSESSMENT_BEGAN);
 
     let uncompletedGames = this.state.user.games.filtered('isDone = false');
 
