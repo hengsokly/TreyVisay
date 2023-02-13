@@ -132,14 +132,27 @@ import VideoScreen from '../../Video/VideoScreen';
 import VocationalStack from '../Vocational/VocationalStack';
 import CareerCenterStack from '../CareerCenter/CareerCenterStack';
 
+import { Platform } from 'react-native';
+import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+
 const Tab = createBottomTabNavigator();
 
 function HomeTab() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Profile" component={ProfileStack} />
-      <Tab.Screen name="Others" component={OthersStack} />
+      <Tab.Screen name="Home" component={Home} options={{
+        tabBarLabel: 'ទំព័រដេីម',
+        tabBarIcon: ({ focused, horizontal, tintColor }) => (<MaterialIcon name='home' size={22} color={tintColor} />)
+      }} />
+      <Tab.Screen name="Profile" component={ProfileStack} options={{
+        tabBarLabel: 'ប្រវត្តិរូបសង្ខេប',
+        tabBarIcon: ({ focused, horizontal, tintColor }) => (<AwesomeIcon name='user' size={22} color={tintColor} />)
+      }} />
+      <Tab.Screen name="Others" component={OthersStack} options={{
+        tabBarLabel: 'ផ្សេងៗ',
+        tabBarIcon: ({ focused, horizontal, tintColor }) => (<AwesomeIcon name='ellipsis-h' size={24} color={tintColor} />)
+      }}/>
     </Tab.Navigator>
   );
 }
