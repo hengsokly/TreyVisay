@@ -43,19 +43,20 @@ export default class VideoScreen extends Component {
   }
 
   _handleInternetConnection() {
-    NetInfo.isConnected.fetch().then(isConnected => {
+    const unsubscribe = NetInfo.addEventListener(state => {
       this.setState({
-        isConnected: isConnected,
-        isOnline: isConnected,
+        isConnected: state.isConnected,
+        isOnline: state.isConnected,
         isLoaded: true,
         showLoading: false
       });
     });
 
-    NetInfo.isConnected.addEventListener(
-      'connectionChange',
-      this._handleFirstConnectivityChange
-    );
+    // Todo:
+    // NetInfo.isConnected.addEventListener(
+    //   'connectionChange',
+    //   this._handleFirstConnectivityChange
+    // );
   }
 
   _handleFirstConnectivityChange = (isConnected) => {

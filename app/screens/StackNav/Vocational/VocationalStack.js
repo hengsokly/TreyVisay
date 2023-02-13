@@ -14,51 +14,71 @@ import BackButton from '../../../components/shared/back_button';
 import InfoButton from '../../../components/info_button';
 import headerStyles from '../../../assets/style_sheets/header';
 
-const VocationalStack = createStackNavigator(
-  {
-    ClusterScreen: {
-      screen: ClusterScreen,
-      navigationOptions: ({navigation}) => ({
-        header: null
-      }),
-    },
-    CareerIndexScreen: {
-      screen: CareerIndexScreen,
-      navigationOptions: ({navigation}) => ({
-        title: navigation.state.params.title,
-      })
-    },
-    CareerDetailScreen: {
-      screen: CareerDetailScreen,
-      navigationOptions: ({navigation}) => ({
-        header: null
-      })
-    },
-    InstitutionDetail: {
-      screen: InstitutionDetail,
-      navigationOptions: ({navigation}) => ({
-        header: null
-      })
-    },
-    Description: {
-      screen: Description,
-      navigationOptions: ({navigation}) => ({
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+function VocationalStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="ClusterScreen" component={ClusterScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="CareerIndexScreen" component={CareerIndexScreen} navigationOptions={({navigation}) => ({
         title: navigation.state.params.title
-      })
-    }
-  },
-  {
-    navigationOptions: ({
-      headerStyle: {
-        // marginTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0
-      },
-      headerTitleStyle: {
-        fontSize: FontSetting.nav_title,
-        fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy',
-        fontWeight: '300'
-      }
-    })
-  }
-);
+      })}/>
+      <Stack.Screen name="CareerDetailScreen" component={CareerDetailScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="InstitutionDetail" component={InstitutionDetail} options={{headerShown: false}}/>
+      <Stack.Screen name="Description" component={Description} navigationOptions={({navigation}) => ({
+        title: navigation.state.params.title
+      })}/>
+    </Stack.Navigator>
+  )
+}
+
+// const VocationalStack = createStackNavigator(
+//   {
+//     ClusterScreen: {
+//       screen: ClusterScreen,
+//       navigationOptions: ({navigation}) => ({
+//         header: null
+//       }),
+//     },
+//     CareerIndexScreen: {
+//       screen: CareerIndexScreen,
+//       navigationOptions: ({navigation}) => ({
+//         title: navigation.state.params.title,
+//       })
+//     },
+//     CareerDetailScreen: {
+//       screen: CareerDetailScreen,
+//       navigationOptions: ({navigation}) => ({
+//         header: null
+//       })
+//     },
+//     InstitutionDetail: {
+//       screen: InstitutionDetail,
+//       navigationOptions: ({navigation}) => ({
+//         header: null
+//       })
+//     },
+//     Description: {
+//       screen: Description,
+//       navigationOptions: ({navigation}) => ({
+//         title: navigation.state.params.title
+//       })
+//     }
+//   },
+//   {
+//     navigationOptions: ({
+//       headerStyle: {
+//         // marginTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0
+//       },
+//       headerTitleStyle: {
+//         fontSize: FontSetting.nav_title,
+//         fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy',
+//         fontWeight: '300'
+//       }
+//     })
+//   }
+// );
 
 export default VocationalStack;

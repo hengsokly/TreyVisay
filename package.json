@@ -43,6 +43,7 @@
     "react-native-share": "^8.2.0",
     "react-native-simple-dialogs": "^1.5.0",
     "react-native-snap-carousel": "^3.7.5",
+    "react-native-thumbnail-video": "^0.1.2",
     "react-native-vector-icons": "^9.2.0",
     "realm": "^11.4.0"
   },

@@ -128,7 +128,8 @@ import CareerCounsellorStack from '../CareerCounsellor/CareerCounsellorStack';
 import PersonalityAssessmentStack from '../Assessment/PersonalityAssessmentStack';
 import SchoolStack from '../School/SchoolStack';
 import { navigationRef } from '../RootNavigation';
-
+import VideoScreen from '../../Video/VideoScreen';
+import VocationalStack from '../Vocational/VocationalStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -158,6 +159,8 @@ function App() {
         <Stack.Screen name="CareerCounsellorStack" component={CareerCounsellorStack} options={{}}/>
         <Stack.Screen name="PersonalityAssessmentStack" component={PersonalityAssessmentStack} options={{}}/>
         <Stack.Screen name="SchoolStack" component={SchoolStack} options={{}}/>
+        <Stack.Screen name="VideoScreen" component={VideoScreen} options={{}}/>
+        <Stack.Screen name="VocationalStack" component={VocationalStack} options={{}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

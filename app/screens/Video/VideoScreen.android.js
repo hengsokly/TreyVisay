@@ -15,7 +15,8 @@ import {
 import NetInfo from "@react-native-community/netinfo";
 import Toast, { DURATION } from 'react-native-easy-toast';
 
-import { ThemeContext, getTheme, Toolbar } from 'react-native-material-ui';
+// import { ThemeContext, getTheme, Toolbar } from '@react-native-material/core';
+import { Toolbar } from '@react-native-material/core';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import headerStyles from '../../assets/style_sheets/header';
@@ -69,19 +70,20 @@ export default class VideoScreen extends Component {
   }
 
   _handleInternetConnection() {
-    NetInfo.isConnected.fetch().then(isConnected => {
+    const unsubscribe = NetInfo.addEventListener(state => {
       this.setState({
-        isConnected: isConnected,
-        isOnline: isConnected,
+        isConnected: state.isConnected,
+        isOnline: state.isConnected,
         isLoaded: true,
         showLoading: false
       });
     });
 
-    NetInfo.isConnected.addEventListener(
-      'connectionChange',
-      this._handleFirstConnectivityChange
-    );
+    // Todo:
+    // NetInfo.isConnected.addEventListener(
+    //   'connectionChange',
+    //   this._handleFirstConnectivityChange
+    // );
   }
 
   _handleFirstConnectivityChange = (isConnected) => {
@@ -188,26 +190,47 @@ export default class VideoScreen extends Component {
 
   render() {
     return(
-      <ThemeContext.Provider value={getTheme(uiTheme)}>
         <View style={{flex: 1}} ref="myRef">
           <MyStatusBar />
-          <Toolbar
-            leftElement={ 'arrow-back' }
-            centerElement={'វីដេអូមុខរបរ'}
-            searchable={{
-              autoFocus: true,
-              placeholder: 'ស្វែងរក',
-              onChangeText: this._onChangeText.bind(this),
-              onSearchClosed: this._onSearchClosed.bind(this)
-            }}
-            onLeftElementPress={() => this.props.navigation.goBack()}
-          />
+          { false && <Toolbar
+              leftElement={ 'arrow-back' }
+              centerElement={'វីដេអូមុខរបរ'}
+              searchable={{
+                autoFocus: true,
+                placeholder: 'ស្វែងរក',
+                onChangeText: this._onChangeText.bind(this),
+                onSearchClosed: this._onSearchClosed.bind(this)
+              }}
+              onLeftElementPress={() => this.props.navigation.goBack()}
+            />
+          }
 
           { this.state.isLoaded && this.state.isConnected && this._renderContent() }
           { this.state.isLoaded && !this.state.isConnected && this._renderNoInternetConnection() }
           <Toast ref='toast' positionValue={ Platform.OS == 'ios' ? 120 : 140 }/>
         </View>
-      </ThemeContext.Provider>
     );
+    // return(
+    //   <ThemeContext.Provider value={getTheme(uiTheme)}>
+    //     <View style={{flex: 1}} ref="myRef">
+    //       <MyStatusBar />
+    //       <Toolbar
+    //         leftElement={ 'arrow-back' }
+    //         centerElement={'វីដេអូមុខរបរ'}
+    //         searchable={{
+    //           autoFocus: true,
+    //           placeholder: 'ស្វែងរក',
+    //           onChangeText: this._onChangeText.bind(this),
+    //           onSearchClosed: this._onSearchClosed.bind(this)
+    //         }}
+    //         onLeftElementPress={() => this.props.navigation.goBack()}
+    //       />
+
+    //       { this.state.isLoaded && this.state.isConnected && this._renderContent() }
+    //       { this.state.isLoaded && !this.state.isConnected && this._renderNoInternetConnection() }
+    //       <Toast ref='toast' positionValue={ Platform.OS == 'ios' ? 120 : 140 }/>
+    //     </View>
+    //   </ThemeContext.Provider>
+    // );
   };
 }
