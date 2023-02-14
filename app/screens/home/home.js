@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar, Platform } from 'react-native';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import CarouselView from '../../components/home/carousel_view';
 
 import { Container, Header} from "native-base";
@@ -18,7 +18,7 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    // SplashScreen.hide();
+    SplashScreen.hide();
     User.isLoggedin(() => {
       let user = User.getCurrent();
       this.setState({ user: user});
