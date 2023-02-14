@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
-import { Field } from 'redux-form';
+import { Field } from 'react-final-form';
 import CustomRadioGroup from '../CustomRadioGroup';
 import Question from '../../data/json/personal_understanding.json';
 import { Divider } from '@react-native-material/core';

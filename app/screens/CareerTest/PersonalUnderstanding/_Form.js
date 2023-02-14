@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {
-  reduxForm,
+  Form,
   Field,
   formValueSelector,
   getFormValues,
   reset
-} from 'redux-form';
+} from 'react-final-form';
 import {
   View,
   Text,
@@ -33,71 +33,75 @@ function Form(props) {
   const buttonColor = props.haveEverThoughtOfCareerIsYes ? Colors.blue : '#ccc';
 
   return (
-    <View style={styles.scrollContainer}>
-      <Text style={styles.hintLable}>ចូរបំពេញចម្លើយខាងក្រោម៖</Text>
+    <Form>
+      {() => (
+        <View style={styles.scrollContainer}>
+          <Text style={styles.hintLable}>ចូរបំពេញចម្លើយខាងក្រោម៖</Text>
 
-      <FormRadio
-        questionKey={'areYouGoingToStudyTillGrade12'}/>
-      <FormRadio
-        questionKey={'areYourParentsAllowYouToStudyTillGrade12'}/>
-      <FormRadio
-        questionKey={'haveYouEverThoughtOfCareer'}>
-        <View style={styles.formSubGroup3}>
-          <Text style={getTextColor} onPress={() => {this.careerName.focus()}}>
-            { Question.careerName }
-          </Text>
-          <Field
-            name={'careerName'}
-            component={CustomTextInput}
-            multiline={true}
-            numberOfLines={3}
-            placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
-            editable={props.haveEverThoughtOfCareerIsYes}
-            onRef={(input) => {this.careerName = input}}
-          />
+          <FormRadio
+            questionKey={'areYouGoingToStudyTillGrade12'}/>
+          <FormRadio
+            questionKey={'areYourParentsAllowYouToStudyTillGrade12'}/>
+          <FormRadio
+            questionKey={'haveYouEverThoughtOfCareer'}>
+            <View style={styles.formSubGroup3}>
+              <Text style={getTextColor} onPress={() => {this.careerName.focus()}}>
+                { Question.careerName }
+              </Text>
+              <Field
+                name={'careerName'}
+                component={CustomTextInput}
+                multiline={true}
+                numberOfLines={3}
+                placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
+                editable={props.haveEverThoughtOfCareerIsYes}
+                onRef={(input) => {this.careerName = input}}
+              />
+            </View>
+
+            <View style={styles.formSubGroup3}>
+              <Text
+                style={getTextColor}
+                onPress={() => {this.howToReachCareerGoal.focus()}}> { Question.howToReachCareerGoal } </Text>
+
+              <Field
+                name={'howToReachCareerGoal'}
+                component={CustomTextInput}
+                placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
+                editable={props.haveEverThoughtOfCareerIsYes}
+                onRef={(input) => {this.howToReachCareerGoal = input}}
+              />
+            </View>
+
+            <FormRadio
+              questionKey={'doesParentsAgreeWith'}
+              pointerEvents={ props.haveEverThoughtOfCareerIsYes ? "auto" : "none"}
+              style={{padding: 0, marginBottom: 0}}
+              textStyle={getTextColor}
+              labelStyle={labelStyle}
+              buttonColor={buttonColor} />
+          </FormRadio>
+
+          <View style={styles.formGroup}>
+            <Text style={styles.labelGroup} >{ Question.everTalkedWithAnyoneAboutCareer }</Text>
+            <Field
+              name={'everTalkedWithAnyoneAboutCareer'}
+              component={CustomCheckbox}
+            />
+          </View>
+
+          <View style={styles.formGroup}>
+            <Text style={styles.labelGroup} onPress={() => {this.howToReachJobVacancy.focus()}}> { Question.howToReachJobVacancy } </Text>
+            <Field
+              name={ 'howToReachJobVacancy' }
+              component={CustomTextInput}
+              placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
+              onRef={(input) => {this.howToReachJobVacancy = input}}
+            />
+          </View>
         </View>
-
-        <View style={styles.formSubGroup3}>
-          <Text
-            style={getTextColor}
-            onPress={() => {this.howToReachCareerGoal.focus()}}> { Question.howToReachCareerGoal } </Text>
-
-          <Field
-            name={'howToReachCareerGoal'}
-            component={CustomTextInput}
-            placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
-            editable={props.haveEverThoughtOfCareerIsYes}
-            onRef={(input) => {this.howToReachCareerGoal = input}}
-          />
-        </View>
-
-        <FormRadio
-          questionKey={'doesParentsAgreeWith'}
-          pointerEvents={ props.haveEverThoughtOfCareerIsYes ? "auto" : "none"}
-          style={{padding: 0, marginBottom: 0}}
-          textStyle={getTextColor}
-          labelStyle={labelStyle}
-          buttonColor={buttonColor} />
-      </FormRadio>
-
-      <View style={styles.formGroup}>
-        <Text style={styles.labelGroup} >{ Question.everTalkedWithAnyoneAboutCareer }</Text>
-        <Field
-          name={'everTalkedWithAnyoneAboutCareer'}
-          component={CustomCheckbox}
-        />
-      </View>
-
-      <View style={styles.formGroup}>
-        <Text style={styles.labelGroup} onPress={() => {this.howToReachJobVacancy.focus()}}> { Question.howToReachJobVacancy } </Text>
-        <Field
-          name={ 'howToReachJobVacancy' }
-          component={CustomTextInput}
-          placeholder='ចុចទីនេះដើម្បីសរសេរចម្លើយ'
-          onRef={(input) => {this.howToReachJobVacancy = input}}
-        />
-      </View>
-    </View>
+      )}
+    </Form>
   );
 }
 

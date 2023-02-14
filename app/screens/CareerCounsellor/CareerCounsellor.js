@@ -63,7 +63,7 @@ export default class CareerCounsellor extends Component {
 
         <CardItem>
           <Body>
-            <Text>សួស្តីសាជាថ្មី </Text>
+            <Text>សួស្តីសាជាថ្មី</Text>
             <Text>ការធ្វើតេស្តវាយតម្លៃមុខរបរ និងអាជីព </Text>
           </Body>
         </CardItem>

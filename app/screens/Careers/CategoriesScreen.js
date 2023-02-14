@@ -18,7 +18,8 @@ import CardItem from '../../components/list/card_item';
 
 import realm from '../../db/schema';
 import User from '../../utils/user';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import { Colors } from '../../assets/style_sheets/main/colors';
 
 export default class CategoriesScreen extends Component {
@@ -62,7 +63,7 @@ export default class CategoriesScreen extends Component {
 
   _onYes() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CareerCounsellorScreen' })])
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'CareerCounsellorScreen' })])
   }
 
   _onNo() {

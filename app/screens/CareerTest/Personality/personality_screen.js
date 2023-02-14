@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 
 import Toast, { DURATION } from 'react-native-easy-toast';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 
 import BackConfirmDialog from '../../../components/shared/back_confirm_dialog';
 import CloseButton from '../../../components/shared/close_button';
@@ -83,7 +84,7 @@ export default class PersonalityScreen extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CareerCounsellorScreen' })])
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'CareerCounsellorScreen' })])
   }
 
   _onNo() {

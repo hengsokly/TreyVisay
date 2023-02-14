@@ -6,7 +6,8 @@ import {
   Platform
 } from 'react-native';
 import Toast, { DURATION } from 'react-native-easy-toast';
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 import { Divider } from '@react-native-material/core';
 
 import mainStyles from '../../../assets/style_sheets/main/main';
@@ -93,7 +94,7 @@ export default class PersonalityJobsScreen extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CareerCounsellorScreen' })])
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'CareerCounsellorScreen' })])
   }
 
   _onNo() {

@@ -6,7 +6,8 @@ import {
   BackHandler,
 } from 'react-native';
 
-import { NavigationActions } from 'react-navigation';
+// import { NavigationActions } from 'react-navigation';
+import { CommonActions } from '@react-navigation/native';
 
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 // import firebase from 'react-native-firebase';
@@ -77,7 +78,7 @@ export default class ContactScreen extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([NavigationActions.navigate({ routeName: 'CareerCounsellorScreen' })])
+    this.props.navigation.reset([CommonActions.navigate({ routeName: 'CareerCounsellorScreen' })])
   }
 
   _onNo() {
