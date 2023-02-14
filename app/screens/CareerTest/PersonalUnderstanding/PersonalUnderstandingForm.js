@@ -46,7 +46,7 @@ export default class PersonalUnderstandingForm extends Component {
   };
 
   _handleBack() {
-    this.props.navigation.state.params.refresh();
+    this.props.route.params.refresh();
     this.props.navigation.goBack();
   }
 

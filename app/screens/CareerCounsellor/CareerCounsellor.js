@@ -51,7 +51,7 @@ export default class CareerCounsellor extends Component {
           hasLine={true}
           icon={{color: Colors.blue, src: require('../../assets/icons/others/info.png')}}
           onPress={() => { this.props.navigation.navigate('AboutCareerCounsellorScreen') }}
-          title='អំពីការធ្វើតេសវាយតម្លៃមុខរបរ​ និងអាជីព' />
+          title='អំពីការធ្វើតេសវាយតម្លៃមុខរបរ និងអាជីព' />
       </View>
     )
   }

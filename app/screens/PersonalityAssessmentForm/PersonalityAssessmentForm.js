@@ -39,8 +39,8 @@ export default class PersonalityAssessmentRealistic extends Component {
     super(props);
 
     let index = 0;
-    if (!!props.navigation.state.params && !!props.navigation.state.params.category) {
-      index = this.screens.map(e => e.category).indexOf(props.navigation.state.params.category);
+    if (!!props.route.params && !!props.route.params.category) {
+      index = this.screens.map(e => e.category).indexOf(props.route.params.category);
     }
     this.screen = this.screens[index];
 

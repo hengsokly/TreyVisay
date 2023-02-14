@@ -13,7 +13,7 @@ class CloseButton extends React.Component {
 
 
   render() {
-    return <TouchableOpacity onPress={() => { this.props.navigation.state.params._handleBack();}} style={{marginHorizontal: 16, width: 30}}>
+    return <TouchableOpacity onPress={() => { this.props.route.params._handleBack();}} style={{marginHorizontal: 16, width: 30}}>
             <MaterialIcon name='close' color={this.getButtonColor()} size={28} />
           </TouchableOpacity>;
   }

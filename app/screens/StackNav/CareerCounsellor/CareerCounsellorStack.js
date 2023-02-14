@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Platform, StatusBar } from 'react-native';
-// import { createStackNavigator } from  'react-navigation';
-import { FontSetting } from '../../../assets/style_sheets/font_setting';
 
 import CareerCategoriesScreen from '../../Careers/CategoriesScreen';
 import ShowCareerCategoryScreen from '../../Careers/ShowCategoryScreen';
@@ -37,10 +35,9 @@ function CareerCounsellorStack() {
   return(
     <Stack.Navigator screenOptions={{ }} initialRouteName='CareerCounsellorScreen'>
       <Stack.Screen name="CareerCounsellorScreen" component={CareerCounsellorScreen} options={{headerShown: false}} />
-      <Stack.Screen name="AboutCareerCounsellor" component={AboutCareerCounsellor} options={{title: 'ការធ្វើតេសវាយតម្លៃមុខរបរ និងអាជីព'}} />
       <Stack.Screen name="PersonalUnderstandingFormScreen" component={PersonalUnderstandingForm} options={{headerShown: false}} />
-      <Stack.Screen name="ShowCareerCategoryScreen" component={ShowCareerCategoryScreen} options={({navigation}) => ({
-        title: navigation.state.params.title,
+      <Stack.Screen name="ShowCareerCategoryScreen" component={ShowCareerCategoryScreen} options={({navigation, route}) => ({
+        title: route.params.title,
       })} />
       <Stack.Screen name="CareerDetailScreen" component={CareerDetailScreen} options={{headerShown: false}} />
       <Stack.Screen name="AboutCareerCounsellorScreen" component={AboutCareerCounsellor} options={{title: "ការធ្វើតេសវាយតម្លៃមុខរបរ និងអាជីព"}} />
@@ -59,158 +56,9 @@ function CareerCounsellorStack() {
       <Stack.Screen name="PersonalityJobsReport" component={PersonalityJobsReport} options={{title: "ការជ្រើសរើសមុខរបរផ្អែកលើបុគ្គលិកលក្ខណៈ"}} />
       <Stack.Screen name="StudentPersonalityReport" component={StudentPersonalityReport} options={{title: "ការបំពេញបុគ្គលិកលក្ខណៈ"}} />
       <Stack.Screen name="RecommendationReport" component={RecommendationReport} options={{title: "ការផ្តល់អនុសាសន៍"}} />
-      <Stack.Screen name="SchoolListScreen" component={RecommendationReport} options={{title: "គ្រឹះស្ថានសិក្សា"}} />
-
+      <Stack.Screen name="SchoolListScreen" component={SchoolListScreen} options={{title: "គ្រឹះស្ថានសិក្សា"}} />
     </Stack.Navigator>
   )
-
 }
-// const CareerCounsellorStack = createStackNavigator(
-//   {
-//     CareerCounsellorScreen: {
-//       screen: CareerCounsellor,
-//       navigationOptions: ({navigation}) => ({
-//         title: 'វាយតម្លៃមុខរបរនិងអាជីព',
-//         header: null
-//       })
-//     },
-//     AboutCareerCounsellorScreen: {
-//       screen: AboutCareerCounsellor,
-//       navigationOptions: ({navigation}) => ({
-//         title: 'ការធ្វើតេសវាយតម្លៃមុខរបរ​ និងអាជីព',
-//       })
-//     },
-
-//     PersonalUnderstandingFormScreen: {
-//       screen: PersonalUnderstandingForm,
-//       navigationOptions: ({navigation}) => ({
-//         header: null,
-//         gesturesEnabled: false
-//       })
-//     },
-//     ShowCareerCategoryScreen: {
-//       screen: ShowCareerCategoryScreen,
-//       navigationOptions: ({navigation}) => ({
-//         title: navigation.state.params.title,
-//       })
-//     },
-//     CareerDetailScreen: {
-//       screen: CareerDetailScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     SubjectScreen: {
-//       screen: SubjectScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     PersonalityScreen: {
-//       screen: PersonalityScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     PersonalityJobsScreen: {
-//       screen: PersonalityJobsScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     SummaryScreen: {
-//       screen: SummaryScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     RecommendationScreen: {
-//       screen: RecommendationScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     GoalScreen: {
-//       screen: GoalScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     ContactScreen: {
-//       screen: ContactScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     CareerCategoriesScreen: {
-//       screen: CareerCategoriesScreen,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     InstitutionDetail: {
-//       screen: InstitutionDetail,
-//       navigationOptions: ({navigation}) => ({
-//         header: null
-//       })
-//     },
-//     GameHistoryScreen: {
-//       screen: GameHistoryScreen,
-//       navigationOptions: ({
-//         title: 'លទ្ធផលតេស្ត'
-//       })
-//     },
-//     PersonalUnderstandingReport: {
-//       screen: PersonalUnderstandingReport,
-//       navigationOptions: ({
-//         title: 'ស្វែងយល់អំពីខ្លួនឯង'
-//       })
-//     },
-//     SubjectReport: {
-//       screen: SubjectReport,
-//       navigationOptions: ({
-//         title: 'ការបំពេញមុខវិជ្ជា'
-//       })
-//     },
-//     PersonalityJobsReport: {
-//       screen: PersonalityJobsReport,
-//       navigationOptions: ({
-//         title: 'ការជ្រើសរើសមុខរបរផ្អែកលើបុគ្គលិកលក្ខណៈ'
-//       })
-//     },
-//     StudentPersonalityReport: {
-//       screen: StudentPersonalityReport,
-//       navigationOptions: ({
-//         title: 'ការបំពេញបុគ្គលិកលក្ខណៈ'
-//       })
-//     },
-//     RecommendationReport: {
-//       screen: RecommendationReport,
-//       navigationOptions: ({
-//         title: 'ការផ្តល់អនុសាសន៍'
-//       })
-//     },
-//     SchoolListScreen: {
-//       screen: SchoolListScreen,
-//       navigationOptions: ({
-//         title: 'គ្រឹះស្ថានសិក្សា'
-//       })
-//     }
-//   },
-//   {
-//     navigationOptions: ({
-//       headerStyle: {
-//         // marginTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0,
-//       },
-//       headerTitleStyle: {
-//         fontSize: FontSetting.nav_title,
-//         fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy',
-//         fontWeight: '300'
-//       },
-//       headerBackTitle: null
-//     }),
-//     initialRouteName: 'CareerCounsellorScreen'
-//   }
-// );
 
 export default CareerCounsellorStack;

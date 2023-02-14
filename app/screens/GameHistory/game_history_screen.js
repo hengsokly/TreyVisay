@@ -32,7 +32,7 @@ export default class GameHistoryScreen extends Component {
 
   _initState() {
     let user = User.getCurrent();
-    let game = user.games.filtered('uuid=="' + this.props.navigation.state.params.gameUuid + '"')[0];
+    let game = user.games.filtered('uuid=="' + this.props.route.params.gameUuid + '"')[0];
     let currentGroup = characteristicList.find((obj) => obj.id == game.characteristicId);
     let currentJob = currentGroup.careers.find((career) => career.code == game.mostFavorableJobCode);
     let schools = schoolList.filter((school, pos) => {
@@ -45,7 +45,7 @@ export default class GameHistoryScreen extends Component {
     this.setState({
       user: user,
       game: game,
-      gameUuid: this.props.navigation.state.params.gameUuid,
+      gameUuid: this.props.route.params.gameUuid,
       schools: schools,
       currentJob: currentJob
     });

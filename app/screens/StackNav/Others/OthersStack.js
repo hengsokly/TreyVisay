@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator();
 
 function OthersStack() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Others">
       <Stack.Screen name="Others" component={Others} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="ChangePassword" component={ChangePassword} />
@@ -24,44 +24,6 @@ function OthersStack() {
     </Stack.Navigator>
   );
 }
-
-
-// const OthersStack = createStackNavigator({
-//   Others: {
-//     screen: Others,
-//     navigationOptions: ({navigation}) => ({
-//       header: null
-//     }),
-//   },
-//   About: {
-//     screen: About,
-//     navigationOptions: ({navigation}) => ({
-//       title: 'អំពីកម្មវិធី',
-//       header: null
-//     }),
-//   },
-//   ChangePassword: {
-//     screen: ChangePassword,
-//     navigationOptions: ({navigation}) => ({
-//       header: null
-//     }),
-//   },
-//   TermsCondition: {
-//     screen: TermsCondition,
-//     navigationOptions: ({navigation}) => ({
-//       title: 'Terms & Condition',
-//       header: null
-//     }),
-//   }
-// },
-// {
-//   navigationOptions: ({
-//     headerStyle: {
-//       // marginTop: Platform.OS == 'android' ? 24: 0
-//     },
-//   }),
-//   initialRouteName: 'Others',
-// });
 
 // OthersStack.navigationOptions = ({ navigation }) => {
 //   let tabBarVisible = true;
