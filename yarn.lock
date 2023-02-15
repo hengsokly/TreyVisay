@@ -6801,7 +6801,7 @@
     "lodash" "^4.17.14"
     "prop-types" "^15.5.10"
 
-"native-base@^2.12.1":
+"native-base@^2.15.2":
   "integrity" "sha512-Oa42UOlOVgzA6oNc5ai86r3DFom9Wj5JuJ3ShsHmEkqhnqWw7TBKpuIDNV8Zt9NmycH5xMdMcgxliob6jniZjw=="
   "resolved" "https://registry.npmjs.org/native-base/-/native-base-2.15.2.tgz"
   "version" "2.15.2"

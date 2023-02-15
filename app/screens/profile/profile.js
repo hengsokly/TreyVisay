@@ -14,7 +14,6 @@ import highSchools from '../../data/json/address/highSchools.json';
 import te from '../../data/translates/km';
 
 import ScrollableHeader from '../../components/scrollable_header';
-// import { NavigationActions } from 'react-navigation';
 import Login from '../Account/login';
 import grades from '../../data/json/grades.json';
 import {Colors} from '../../assets/style_sheets/main/colors';
@@ -23,13 +22,16 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
 
-    this.handleParamForLoginPage();
+    // this.handleParamForLoginPage();
     this.assignStatusBar();
-
+  }
+  componentDidMount() {
+    this.handleParamForLoginPage();
   }
 
   handleParamForLoginPage() {
     this.props.navigation.setParams({from: 'ProfileScreen', disableNavigationBar: true});
+    console.log("-------------props,", this.props.route)
   }
 
   componentWillMount() {
@@ -161,7 +163,7 @@ export default class Profile extends Component {
 
   render() {
     if (!this.state.user) {
-      return (<Login navigation={this.props.navigation} />);
+      return (<Login route={this.props.route} />);
     }
 
     let title = 'ប្រវត្តិរូបសង្ខេប';

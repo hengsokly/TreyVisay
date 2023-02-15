@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
-  Picker
 } from 'react-native';
 import styles from '../../assets/style_sheets/profile_form';
+import { Picker } from 'native-base';
 
 class PickerSpecific extends Component {
   _getPickerValue(data) {

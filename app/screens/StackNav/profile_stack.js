@@ -15,10 +15,10 @@ const Stack = createNativeStackNavigator();
 
 function ProfileStack() {
   return (
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="ProfileScreen">
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{headerShown: false}}/>
         <Stack.Screen name="EditProfilePhoto" component={EditProfilePhoto} options={{title: "កែតម្រូវប្រវត្តិរូប"}}/>
-        <Stack.Screen name="EditPersonalInfo" component={EditProfilePhoto} options={{title: "កែតម្រូវប្រវត្តិរូប"}}/>
+        <Stack.Screen name="EditPersonalInfo" component={EditPersonalInfo} options={{title: "កែតម្រូវប្រវត្តិរូប"}}/>
         <Stack.Screen name="ProfileForm" component={ProfileForm} options={{headerShown: false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
       </Stack.Navigator>

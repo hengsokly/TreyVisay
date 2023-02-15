@@ -20,12 +20,12 @@ import scrollHeaderStyles from '../../assets/style_sheets/scroll_header';
 import ScrollableHeader from '../../components/scrollable_header';
 import BackButton from '../../components/shared/back_button';
 import { Container, Content, Icon, Button, Input, Item, Form } from 'native-base';
-// import { NavigationActions } from 'react-navigation';
-import { CommonActions } from '@react-navigation/native';
 import { Colors } from '../../assets/style_sheets/main/colors';
 import keyword from '../../data/analytics/keyword';
 
 import * as RootNavigation from '../StackNav/RootNavigation.js';
+
+import { reset } from '../StackNav/RootNavigation.js';
 
 export default class Login extends Component {
   constructor(props) {
@@ -165,12 +165,12 @@ export default class Login extends Component {
 
   _handleNavigation = (user) => {
     if (!this._isUserInfoCompleted(user)) {
-      return RootNavigation.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.route.params.from} })]);
       // return this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
+      reset({ routeName: 'ProfileForm', params: {from: 'Login'} })
     }
 
     // this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
-    RootNavigation.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
+    reset({ routeName: this.props.route.params.from })
   }
 
   _register = () => {

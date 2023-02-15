@@ -27,7 +27,7 @@
     "base-64": "^1.0.0",
     "deprecated-react-native-prop-types": "^4.0.0",
     "install": "^0.13.0",
-    "native-base": "^2.12.1",
+    "native-base": "^2.15.2",
     "npm": "^9.4.2",
     "react": "18.2.0",
     "react-final-form": "^6.5.9",
