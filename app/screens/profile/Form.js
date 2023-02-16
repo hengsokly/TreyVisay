@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import styles from '../../assets/style_sheets/profile_form';
-import DatePicker from 'react-native-datepicker';
+// import DatePicker from 'react-native-datepicker';
 import PickerSpecific from '../../components/picker/PickerSpecific';
 import grades from '../../data/json/grades.json';
 import provinces from '../../data/json/address/provinces.json';
@@ -39,7 +39,7 @@ export default class FormScreen extends Component {
 
   _renderContent = () => {
     let noValue = [{ "code": "", "label": "គ្មានតម្លៃ" }]
-
+    return null
     return (
       <View>
         { this._renderFullName() }

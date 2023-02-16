@@ -22,6 +22,10 @@ import { FontSetting } from './app/assets/style_sheets/font_setting';
 import App from './app';
 
 import { StyleProvider } from 'native-base';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as StoreProvider } from 'react-redux';
+import store from './app/redux/store';
+
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
 
@@ -65,11 +69,19 @@ setCustomTextInput(customTextInputProps);
 
 export default class TreyVisay extends Component {
   render() {
-    return(
+    // return(
+    //   <StyleProvider style={getTheme(commonColor)}>
+    //     <App/>
+    //   </StyleProvider>
+    // )
+
+    return (
       <StyleProvider style={getTheme(commonColor)}>
-        <App/>
+        <StoreProvider store={store}>
+          <App />
+        </StoreProvider>
       </StyleProvider>
-    )
+    );
   }
 }
 

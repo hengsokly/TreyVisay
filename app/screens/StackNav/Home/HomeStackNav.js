@@ -36,7 +36,8 @@ function HomeTab() {
       }} />
       <Tab.Screen name="Profile" component={ProfileStack} options={{
         tabBarLabel: 'ប្រវត្តិរូបសង្ខេប',
-        tabBarIcon: ({ focused, horizontal, tintColor }) => (<AwesomeIcon name='user' size={22} color={tintColor} />)
+        tabBarIcon: ({ focused, horizontal, tintColor }) => (<AwesomeIcon name='user' size={22} color={tintColor} />),
+        // unmountOnBlur: true
       }} />
       <Tab.Screen name="Others" component={OthersStack} options={{
         tabBarLabel: 'ផ្សេងៗ',
@@ -52,7 +53,7 @@ function RootStack() {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="HomeTab"
         screenOptions={{
           headerShown: false,
           headerTitleStyle: {
@@ -70,7 +71,6 @@ function RootStack() {
         <Stack.Screen name="VideoScreen" component={VideoScreen} options={{}}/>
         <Stack.Screen name="VocationalStack" component={VocationalStack} options={{}}/>
         <Stack.Screen name="CareerCenterStack" component={CareerCenterStack} options={{}}/>
-
       </Stack.Navigator>
     </NavigationContainer>
   );

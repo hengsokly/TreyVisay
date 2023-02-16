@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { StatusBar, Platform, Text } from 'react-native';
 import { FontSetting } from '../../assets/style_sheets/font_setting';
 
-import ProfileScreen from '../profile/profile';
+import ProfileScreen from '../profile/ProfileInfo';
 import EditProfilePhoto from '../profile/edit_profile_photo';
 import EditPersonalInfo from '../profile/edit_personal_info';
 import ProfileForm from '../profile/profile_form';
