@@ -13,14 +13,13 @@ import { View, TouchableOpacity, StatusBar, Platform } from 'react-native';
 import Login from '../Account/login';
 import uuidv4 from '../../utils/uuidv4';
 import grades from '../../data/json/grades.json';
-import {Colors} from '../../assets/style_sheets/main/colors';
 import { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Profile(props) {
+export default function Profile({route, navigation}) {
   const currentUser = useSelector((state) => state.currentUser.value)
   const title = 'ប្រវត្តិរូបសង្ខេប';
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   useEffect(() => {
     navigation.setParams({from: 'ProfileScreen', disableNavigationBar: true});
@@ -38,7 +37,7 @@ export default function Profile(props) {
         thumbnail
         button
         style={{marginTop: 16, marginBottom: 20, marginLeft: 0, paddingLeft: 16, backgroundColor: '#fff'}}
-        onPress={() => props.navigation.navigate('EditProfilePhoto', { refresh: this.refreshState.bind(this) })}>
+        onPress={() => navigation.navigate('EditProfilePhoto')}>
         <Left>
           <Thumbnail large source={photo} />
         </Left>
@@ -82,7 +81,7 @@ export default function Profile(props) {
           <Text style={{flex: 1}}>{title}</Text>
 
           <Right>
-            <TouchableOpacity onPress={() => props.navigation.navigate('EditPersonalInfo', { refresh: this.refreshState.bind(this) })}>
+            <TouchableOpacity onPress={() => navigation.navigate('EditPersonalInfo')}>
               <Text style={{color: '#1976d2'}}>កែតម្រូវ</Text>
             </TouchableOpacity>
           </Right>
@@ -126,7 +125,7 @@ export default function Profile(props) {
   }
 
   if (!currentUser) {
-    return (<Login route={props.route} />);
+    return (<Login route={route} />);
   } else {
     return (
       <ScrollableHeader

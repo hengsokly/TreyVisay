@@ -1812,6 +1812,11 @@
   "resolved" "https://registry.npmjs.org/@react-native-picker/picker/-/picker-1.16.8.tgz"
   "version" "1.16.8"
 
+"@react-native-picker/picker@^2.4.8":
+  "integrity" "sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg=="
+  "resolved" "https://registry.npmjs.org/@react-native-picker/picker/-/picker-2.4.8.tgz"
+  "version" "2.4.8"
+
 "@react-native/assets@1.0.0":
   "integrity" "sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ=="
   "resolved" "https://registry.npmjs.org/@react-native/assets/-/assets-1.0.0.tgz"
@@ -6762,7 +6767,7 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
-"moment@^2.22.0":
+"moment@^2.29.4":
   "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
   "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
   "version" "2.29.4"
@@ -6830,7 +6835,6 @@
   "version" "2.15.2"
   dependencies:
     "@codler/react-native-keyboard-aware-scroll-view" "1.0.1"
-    "@react-native-community/datetimepicker" "^3.0.2"
     "@react-native-picker/picker" "^1.9.7"
     "blueimp-md5" "^2.5.0"
     "clamp" "^1.0.1"
@@ -7819,20 +7823,6 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
-"react-native-collapse-view@1.0.0":
-  "integrity" "sha512-RqbyIsYzD8RX2z9GKZGnw3a51DeLxXnn5mVA/7vibMNDdvSoF2B333w7Ul1m6VsBJ17k89SG1IIgkcPKvCRIXA=="
-  "resolved" "https://registry.npmjs.org/react-native-collapse-view/-/react-native-collapse-view-1.0.0.tgz"
-  "version" "1.0.0"
-  dependencies:
-    "prop-types" "^15.5.10"
-
-"react-native-datepicker@^1.7.2":
-  "integrity" "sha512-ses0N1y44fYBmlejYwR2i+dGnQQ8v5/gacX2CrbFJiWxbcQaRuxexsZPB9YQuQkAy+uKz5Gti3Lrp3dh9BfkzA=="
-  "resolved" "https://registry.npmjs.org/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz"
-  "version" "1.7.2"
-  dependencies:
-    "moment" "^2.22.0"
-
 "react-native-device-info@^10.3.0":
   "integrity" "sha512-/ziZN1sA1REbJTv5mQZ4tXggcTvSbct+u5kCaze8BmN//lbxcTvWsU6NQd4IihLt89VkbX+14IGc9sVApSxd/w=="
   "resolved" "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-10.3.0.tgz"
@@ -7891,13 +7881,6 @@
   "integrity" "sha512-4aANbQMrmU6zN/4b0rVBA7SbaZ3aa5JESm3Xk751sINybZMt1yz/9h95LkO7U0pbslHDo3ofXjG75PmQRP6a/w=="
   "resolved" "https://registry.npmjs.org/react-native-image-crop-picker/-/react-native-image-crop-picker-0.39.0.tgz"
   "version" "0.39.0"
-
-"react-native-ios-picker@^1.0.0":
-  "integrity" "sha512-/QDeij2wxGWwPD9EaFqHXdfB7zQsxHpknBqH5Mxmnetj3zQPZ4OzQf2k+WM+9MYXZUyIsMKGb2NBvHP5MIkLOA=="
-  "resolved" "https://registry.npmjs.org/react-native-ios-picker/-/react-native-ios-picker-1.0.0.tgz"
-  "version" "1.0.0"
-  dependencies:
-    "react-native-collapse-view" "1.0.0"
 
 "react-native-iphone-x-helper@^1.0.2", "react-native-iphone-x-helper@^1.0.3":
   "integrity" "sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg=="
@@ -8128,7 +8111,7 @@
     "raf" "^3.1.0"
     "tween-functions" "^1.0.1"
 
-"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^18.2.0", "react@> 15.0.0", "react@>=15.0.0", "react@>=16.0.0-alpha.3", "react@>=16.3.0", "react@>=16.4.1", "react@>=16.8", "react@>=17.0.0", "react@>=17.0.2", "react@16 || 17", "react@18.2.0":
+"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^18.2.0", "react@> 15.0.0", "react@>=15.0.0", "react@>=16", "react@>=16.0.0-alpha.3", "react@>=16.3.0", "react@>=16.4.1", "react@>=16.8", "react@>=17.0.0", "react@>=17.0.2", "react@16 || 17", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

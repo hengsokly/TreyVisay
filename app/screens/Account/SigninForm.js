@@ -37,19 +37,9 @@ export default class Login extends Component {
       passwordConfirmation: '',
       isLogin: true
     };
-
-    if (Platform.OS == 'android') {
-      StatusBar.setBackgroundColor(Colors.blueStatusBar);
-      StatusBar.setBarStyle('light-content');
-    }
-  }
-
-  _isUserInfoCompleted(user) {
-    return !!user && !!user.dateOfBirth;
   }
 
   _renderNavigation = () => {
-    // Todo:
     if (this.props.route.params && this.props.route.params.disableNavigationBar) {
       return (null)
     }
@@ -165,13 +155,6 @@ export default class Login extends Component {
 
   _handleNavigation = (user) => {
     this.props.handleSignedIn(user);
-    // if (!this._isUserInfoCompleted(user)) {
-    //   // return this.props.navigation.reset([CommonActions.navigate({ routeName: 'ProfileForm', params: {from: this.props.navigation.getParam('from')} })]);
-    //   reset({ routeName: 'ProfileForm', params: {from: 'Login'} })
-    // }
-
-    // // this.props.navigation.reset([CommonActions.navigate({ routeName: this.props.navigation.getParam('from') })]);
-    // reset({ routeName: this.props.route.params.from })
   }
 
   _register = () => {
