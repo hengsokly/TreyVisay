@@ -22,50 +22,18 @@ import { FontSetting } from './app/assets/style_sheets/font_setting';
 import App from './app';
 
 import { StyleProvider } from 'native-base';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider, configureFonts, MD2LightTheme } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
 import store from './app/redux/store';
 
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
+import { fontConfig } from './react-native-paper/fontConfig';
 
-const customTextProps = {
-  style: {
-    fontSize: FontSetting.text,
-    color: 'black',
-    ...Platform.select({
-      android: {
-        fontFamily: 'Kantumruy',
-        lineHeight: 38,
-      },
-      ios: {
-        fontFamily: 'HelveticaNeue',
-        lineHeight: 0,
-      }
-    })
-
-  }
+const theme = {
+  ...MD2LightTheme,
+  fonts: configureFonts({config: fontConfig, isV3: false}),
 };
-
-const customTextInputProps = {
-  style: {
-    height: 48,
-    fontSize: FontSetting.text,
-    ...Platform.select({
-      android: {
-        fontFamily: 'Kantumruy',
-        lineHeight: 48,
-      },
-      ios: {
-        fontFamily: 'HelveticaNeue',
-        lineHeight: 28
-      }
-    })
-  }
-};
-
-setCustomText(customTextProps);
-setCustomTextInput(customTextInputProps);
 
 export default class TreyVisay extends Component {
   render() {
@@ -78,7 +46,9 @@ export default class TreyVisay extends Component {
     return (
       <StyleProvider style={getTheme(commonColor)}>
         <StoreProvider store={store}>
-          <App />
+          <PaperProvider theme={theme}>
+            <App />
+          </PaperProvider>
         </StoreProvider>
       </StyleProvider>
     );

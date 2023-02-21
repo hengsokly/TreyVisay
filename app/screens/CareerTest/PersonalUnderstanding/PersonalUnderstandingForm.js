@@ -7,10 +7,9 @@ import {
 
 import Toast, { DURATION } from 'react-native-easy-toast';
 
-import { Provider } from 'react-redux';
 import store from '../../../redux/store';
 import PersonalUnderstandingScore from './PersonalUnderstandingScore';
-// import Form from './_Form';
+import Form from './_Form';
 import realm from '../../../db/schema';
 import User from '../../../utils/user';
 import uuidv4 from '../../../utils/uuidv4';
@@ -28,7 +27,10 @@ import { Colors } from '../../../assets/style_sheets/main/colors';
 // import firebase from 'react-native-firebase';
 import keyword from '../../../data/analytics/keyword';
 
-export default class PersonalUnderstandingForm extends Component {
+import { connect } from "react-redux";
+import { resetQuizOne } from '../../../redux/features/careerAssessment/quizOneSlice';
+
+class PersonalUnderstandingForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -55,8 +57,7 @@ export default class PersonalUnderstandingForm extends Component {
   }
 
   handleSubmit = () => {
-    let formValues = this.parseFormValue(this.formRef.current.selector.props.values);
-
+    let formValues = this.parseFormValue({...this.props.quizOneAnswer});
     if (!formValues) {
       return this.refs.toast.show('សូមបំពេញសំណួរខាងក្រោមជាមុនសិន...!', DURATION.SHORT);
     }
@@ -88,30 +89,22 @@ export default class PersonalUnderstandingForm extends Component {
 
       this.setState({testCount: list.length, score: values.score});
       this.setModalVisible(true);
+      this.props.resetQuizOne();
     });
   };
 
   parseFormValue(values) {
-    if(!!values){
-      values['uuid'] = uuidv4();
-      if(values['everTalkedWithAnyoneAboutCareer']) {
-        values['everTalkedWithAnyoneAboutCareer'] = values['everTalkedWithAnyoneAboutCareer'].map(function(i){ return {value: i }; } );
-      }
+    values['uuid'] = uuidv4();
+    if(values['everTalkedWithAnyoneAboutCareer']) {
+      values['everTalkedWithAnyoneAboutCareer'] = values['everTalkedWithAnyoneAboutCareer'].map(function(i){ return {value: i }; } );
     }
+
     return values;
   };
 
   _renderContent = () => {
-    // return (
-    //   <KeyboardAwareScrollView>
-    //     <Provider store={store}>
-    //         <Form ref={this.formRef} />
-    //     </Provider>
-    //   </KeyboardAwareScrollView>
-    // )
     return (
-        <Provider store={store}>
-        </Provider>
+      <Form ref={this.formRef} />
     )
   }
 
@@ -132,7 +125,7 @@ export default class PersonalUnderstandingForm extends Component {
   }
 
   _resetStore = () => {
-    store.dispatch({type: 'RESET'});
+    this.props.resetQuizOne();
   }
 
   _renderResult() {
@@ -169,3 +162,11 @@ export default class PersonalUnderstandingForm extends Component {
     )
   };
 }
+
+const mapStateToProps = (state) => ({
+  quizOneAnswer: state.quizOneAnswer.value
+});
+
+const mapDispatchToProps = { resetQuizOne };
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalUnderstandingForm);

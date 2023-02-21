@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
 //     toolbar: {
 //       titleText: {
 //         color: '#111',
-//         fontFamily: 'Kantumruy',
+//         fontFamily: 'KantumruyLight',
 //         fontWeight: '300',
 //         fontSize: FontSetting.nav_title,
 //       },

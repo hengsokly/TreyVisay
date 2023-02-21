@@ -3,7 +3,6 @@ import {
   View,
   Alert,
   Image,
-  Text,
   TouchableOpacity,
   Platform,
   StatusBar
@@ -22,6 +21,7 @@ import BackButton from '../../components/shared/back_button';
 import { Container, Content, Icon, Button, Input, Item, Form } from 'native-base';
 import { Colors } from '../../assets/style_sheets/main/colors';
 import keyword from '../../data/analytics/keyword';
+import Text from '../../components/Text';
 
 import * as RootNavigation from '../StackNav/RootNavigation.js';
 

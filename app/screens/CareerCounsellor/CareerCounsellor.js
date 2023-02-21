@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
@@ -23,6 +22,7 @@ import { Content, Body, Right, Icon, CardItem } from 'native-base';
 import ButtonList from '../../components/list/button_list';
 import TestListItem from '../../components/GameHistory/TestListItem';
 import keyword from '../../data/analytics/keyword';
+import Text from '../../components/Text';
 
 export default class CareerCounsellor extends Component {
   componentWillMount() {
@@ -95,7 +95,7 @@ export default class CareerCounsellor extends Component {
     let count = this.state.completedGames.length;
 
     return (
-      <Content padder style={{marginHorizontal: 8}}>
+      <View padder style={{marginHorizontal: 16}}>
         { !!this.state.completedGames.length &&
           <Text style={[mainStyles.sectionText, {marginLeft: 0}]}>លទ្ធផលធ្វើតេស្ត</Text>
         }
@@ -110,7 +110,7 @@ export default class CareerCounsellor extends Component {
             />
           )
         })}
-      </Content>
+      </View>
     )
   }
 

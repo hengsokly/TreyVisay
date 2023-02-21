@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   ScrollView,
   TouchableOpacity,
   Image,
   StyleSheet
 } from 'react-native';
 
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 
 import { Colors } from '../../assets/style_sheets/main/colors';
 import mainStyles from '../../assets/style_sheets/main/main';
@@ -24,6 +23,7 @@ import User from '../../utils/user';
 import schoolList from '../../data/json/universities';
 import characteristicList from '../../data/json/characteristic_jobs';
 import Images from '../../assets/images';
+import Text from '../../components/Text';
 
 export default class GameHistoryScreen extends Component {
   componentWillMount() {

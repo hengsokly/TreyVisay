@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 
 import mainStyles from '../../assets/style_sheets/main/main';
 import StatusBar from '../../components/shared/status_bar';

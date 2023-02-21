@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from 'react-native';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 
 import School from './school';
 

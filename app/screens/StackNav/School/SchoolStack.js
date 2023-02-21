@@ -61,7 +61,7 @@ function SchoolStack() {
 const styles = StyleSheet.create({
   title: {
     fontSize: FontSetting.nav_title,
-    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'Kantumruy'
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue' : 'KantumruyLight'
   }
 });
 

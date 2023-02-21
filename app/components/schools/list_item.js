@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Linking
 } from 'react-native';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 

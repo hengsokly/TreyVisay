@@ -58,8 +58,7 @@ function RootStack() {
           headerShown: false,
           headerTitleStyle: {
             fontSize: FontSetting.nav_title,
-            fontFamily: Platform.OS === 'android' ? 'Kantumruy' : 'HelveticaNeue',
-            fontWeight: '300'
+            fontFamily: Platform.OS === 'android' ? 'KantumruyLight' : 'HelveticaNeue',
           }
         }}
       >

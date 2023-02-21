@@ -11,7 +11,7 @@ import { Thumbnail } from 'react-native-thumbnail-video';
 import { FontSetting } from "../../assets/style_sheets/font_setting";
 import mainStyles from "../../assets/style_sheets/main/main";
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 import RF from "react-native-responsive-fontsize";
 
 export default class VideoList extends Component  {

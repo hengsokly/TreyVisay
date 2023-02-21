@@ -15,7 +15,7 @@ import BackButton from '../../components/shared/back_button';
 import { FontSetting } from "../../assets/style_sheets/font_setting";
 import mainStyles from "../../assets/style_sheets/main/main";
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 
 // import firebase from 'react-native-firebase';
 import keyword from '../../data/analytics/keyword';

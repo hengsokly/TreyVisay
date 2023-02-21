@@ -6,9 +6,6 @@ import {
   BackHandler,
 } from 'react-native';
 
-// import { NavigationActions } from 'react-navigation';
-import { CommonActions } from '@react-navigation/native';
-
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 // import firebase from 'react-native-firebase';
 import FooterBar from '../../../components/footer/FooterBar';
@@ -24,6 +21,7 @@ import schoolList from '../../../data/json/universities';
 import characteristicList from '../../../data/json/characteristic_jobs';
 import ScrollableHeader from '../../../components/scrollable_header';
 import keyword from '../../../data/analytics/keyword';
+import { reset } from '../../StackNav/RootNavigation';
 
 export default class ContactScreen extends Component {
   constructor(props) {
@@ -78,7 +76,7 @@ export default class ContactScreen extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([CommonActions.navigate({ routeName: 'CareerCounsellorScreen' })])
+    reset({ routeName: 'CareerCounsellorScreen' });
   }
 
   _onNo() {
@@ -154,7 +152,7 @@ export default class ContactScreen extends Component {
           largeTitle={title}
         />
 
-        <FooterBar icon='done' text='រួចរាល់' onPress={this._goNext.bind(this)} />
+        <FooterBar icon='done' text='រួចរាល់' onPress={() => this._goNext()} />
 
         <BackConfirmDialog
           visible={this.state.confirmDialogVisible}

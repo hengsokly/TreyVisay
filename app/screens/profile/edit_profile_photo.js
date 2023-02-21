@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 
-import { Avatar } from '@react-native-material/core';
+import { Avatar } from 'react-native-paper';
 import { Dialog } from 'react-native-simple-dialogs';
 import ImagePicker from 'react-native-image-crop-picker';
 import StatusBar from '../../components/shared/status_bar';
@@ -149,7 +149,7 @@ export default class EditProfilePhoto extends Component {
               style={{width: '100%', height: '100%' }}/>
 
             <View style={{position: 'absolute', bottom: 0, left: 0, width: '100%', height: 32, backgroundColor: 'rgba(24, 118, 211, 0.67)'}}/>
-            <Avatar icon='camera-alt' size={54} style={{container: {backgroundColor: 'transparent', position: 'absolute', top: -44, left: '50%', marginLeft: -27, zIndex: 10}}} />
+            <Avatar.Icon icon='camera-alt' size={54} style={{container: {backgroundColor: 'transparent', position: 'absolute', top: -44, left: '50%', marginLeft: -27, zIndex: 10}}} />
           </View>
         </TouchableOpacity>
       </View>

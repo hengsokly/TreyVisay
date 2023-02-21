@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
+  // Text,
   TouchableOpacity,
   Dimensions,
   StyleSheet,
@@ -23,6 +23,7 @@ import User from '../../utils/user';
 import LinearGradient from 'react-native-linear-gradient';
 import Ripple from 'react-native-material-ripple';
 import { navigate } from '../../screens/StackNav/RootNavigation';
+import Text from '../Text';
 
 const { width, height } = Dimensions.get('window');
 
@@ -177,7 +178,8 @@ const styles = StyleSheet.create({
   },
   btnLabel: {
     fontSize: FontSetting.big_title,
-    fontWeight: 'bold',
+    fontWeight:'bold',
+    // fontFamily: 'KantumruyBold',
     ...Platform.select({
       android: {
         lineHeight: 48,

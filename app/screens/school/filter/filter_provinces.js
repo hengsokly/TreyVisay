@@ -7,7 +7,7 @@ import {
 
 import { Container, Content } from 'native-base';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Divider } from '@react-native-material/core';
+import { Divider } from 'react-native-paper';
 import SchoolUtil from '../../../utils/School/School';
 import mainStyles from '../../../assets/style_sheets/main/main';
 

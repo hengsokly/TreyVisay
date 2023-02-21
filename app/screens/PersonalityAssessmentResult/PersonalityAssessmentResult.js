@@ -9,8 +9,6 @@ import { Button, Icon } from 'native-base';
 // import firebase from 'react-native-firebase';
 
 import FooterBar from '../../components/footer/FooterBar';
-// import { NavigationActions } from 'react-navigation';
-import { CommonActions } from '@react-navigation/native';
 import BackConfirmDialog from '../../components/shared/back_confirm_dialog';
 import realm from '../../db/schema';
 import User from '../../utils/user';
@@ -18,6 +16,7 @@ import Sidekiq from '../../utils/models/sidekiq';
 import ScrollableHeader from '../../components/scrollable_header';
 import Result from './Result';
 import keyword from '../../data/analytics/keyword';
+import { reset } from '../StackNav/RootNavigation';
 
 export default class PersonalityAssessmentResult extends Component {
   constructor(props) {
@@ -71,7 +70,7 @@ export default class PersonalityAssessmentResult extends Component {
 
   _closeDialog() {
     this.setState({confirmDialogVisible: false});
-    this.props.navigation.reset([CommonActions.navigate({ routeName: 'PersonalityAssessmentScreen' })]);
+    reset({ routeName: 'PersonalityAssessmentScreen' });
   }
 
   _onNo() {

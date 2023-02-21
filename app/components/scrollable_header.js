@@ -5,7 +5,6 @@ import {
   Platform,
   StatusBar,
   StyleSheet,
-  Text,
   View,
   Dimensions,
 } from 'react-native';
@@ -14,6 +13,7 @@ import PropTypes from 'prop-types';
 import * as Progress from 'react-native-progress';
 import { FontSetting } from '../assets/style_sheets/font_setting';
 import scrollHeaderStyles from '../assets/style_sheets/scroll_header';
+import Text from './Text';
 // import { Header } from 'react-navigation';
 // import { useHeaderHeight } from '@react-navigation/elements';
 
