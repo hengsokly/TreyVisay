@@ -42,6 +42,7 @@
     "react-native-image-crop-picker": "^0.39.0",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-material-ripple": "^0.8.0",
+    "react-native-modal": "^13.0.1",
     "react-native-paper": "^5.2.0",
     "react-native-progress": "^5.0.0",
     "react-native-responsive-fontsize": "^0.1.8",
@@ -57,6 +58,8 @@
     "react-native-thumbnail-video": "^0.1.2",
     "react-native-vector-icons": "^9.2.0",
     "react-native-webview": "^11.26.1",
+    "react-native-youtube-iframe": "^2.2.2",
+    "react-native-youtube-popup-player": "^1.0.1",
     "react-redux": "^8.0.5",
     "realm": "^11.4.0",
     "redux": "^4.2.1"
